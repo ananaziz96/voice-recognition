@@ -3,16 +3,18 @@ const content = document.querySelector(".content");
 
 //
 const greetings = [
-  "i am good you little piece of shit",
-  "doing good",
-  "cant complain too much. how are you"
+  "i have been better",
+  "that is none of your bussiness",
+  "cant complain too much. how are you doing"
 ];
 
 const weather = [
-  "it is cold outside",
-  "it is raining today",
+  "it is 90 degrees outside",
+  "it is going to rain today",
   "it is quite sunny in arizona"
 ];
+
+const wrongPrediction = ["shut up! you dont know anything"];
 
 const SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -42,7 +44,13 @@ function readOutLoud(message) {
   }
 
   if (message.includes("weather")) {
-    const finalText = weather[Math.floor(Math.random() * greetings.length)];
+    const finalText = weather[Math.floor(Math.random() * weather.length)];
+    speech.text = finalText;
+  }
+
+  if (message.includes("wrong prediction")) {
+    const finalText =
+      wrongPrediction[Math.floor(Math.random() * wrongPrediction.length)];
     speech.text = finalText;
   }
 
@@ -52,3 +60,19 @@ function readOutLoud(message) {
 
   window.speechSynthesis.speak(speech);
 }
+
+//fetch weather data from openweathermap api
+//needs auth
+async function getWeatherReport() {
+  const cityName = "phoenix";
+  const response = await fetch(
+    "http://api.openweathermap.org/data/2.5/weather?q=London"
+  );
+  const myJson = await response.json();
+
+  const temperature = myJson.weather;
+
+  console.log(temperature);
+}
+
+getWeatherReport();
