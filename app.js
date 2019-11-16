@@ -63,9 +63,10 @@ function readOutLoud(message) {
 //fetch weather data from openweathermap api
 //needs auth
 async function getWeatherReport() {
-  const cityName = "phoenix";
+  const apiKey = "6e27a113797392f6dee5a23a3d7cc5ef";
+  const cityName = "London";
   const response = await fetch(
-    "http://api.openweathermap.org/data/2.5/weather?q=London"
+    `http://api.openweathermap.org/data/2.5/weather?q=${cityName},uk&APPID=${apiKey}`
   );
   const myJson = await response.json();
 
