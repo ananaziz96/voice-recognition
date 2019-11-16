@@ -5,15 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Voice Recognition App</title>
+
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" src="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"></link>
   </head>
+
   <body>
-    <p>Click the button below and speak into the microphone</p>
+    <div class="text-center row h-100" id="bg">
+      <div class="col-sm-12 my-auto">
+        <p id="text">
+          Click the button below and speak into the microphone
+        </p>
 
-    <br />
+        <button class="talk btn btn-lg btn-light" id="button-text">
+            🎙️ Talk
+        </button>
 
-    <button class="talk">Talk</button>
-
-    <h3 class="content"></h3>
+        <h3 class="content" id="text"></h3>
+      </div>
+    </div>
 
     <script src="app.js"></script>
   </body>

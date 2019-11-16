@@ -1,7 +1,6 @@
 const btn = document.querySelector(".talk");
 const content = document.querySelector(".content");
 
-//
 const greetings = [
   "i have been better",
   "that is none of your bussiness",
